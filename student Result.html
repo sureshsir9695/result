@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result Checker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        margin: 50px;
+        text-align: center;
+      }
+      input {
+        padding: 10px;
+        font-size: 16px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-left: 10px;
+      }
+      .result {
+        margin-top: 20px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>रिजल्ट चेक करें</h1>
+      <input type="text" id="rollNumber" placeholder="अपना रोल नंबर डालें" />
+      <button onclick="checkResult()">रिजल्ट देखें</button>
+
+      <div class="result" id="resultDisplay"></div>
+    </div>
+
+    <script>
+      // Mock Data: यह डेटा असल में backend से आता है
+      const studentData = {
+        10001: {
+          name: "Jay Shikha Kushwaha",
+          result: "Pass",
+          marks: 20,
+          maximum_marks: 40,
+          Test: "Ms Word",
+        },
+        10002: {
+          name: "Princi Kushwaha",
+          result: "Pass",
+          marks: 21,
+          maximum_marks: 40,
+          Test: "Ms Word",
+        },
+        10003: {
+          name: "Shivangi Sahu",
+          result: "Pass",
+          marks: 30,
+          maximum_marks: 40,
+          Test: "Ms Word",
+        },
+        10004: {
+          name: "Fatima Khan",
+          result: "Fail",
+          marks: 19,
+          maximum_marks: 45,
+          Test: "Html Css ",
+        },
+        10005: {
+          name: "Saurbh Yadav",
+          result: "Pass",
+          marks: 22,
+          maximum_marks: 40,
+          Test: "Ms Word",
+        },
+        10006: {
+          name: "sulekha Yadav",
+          result: "Pass",
+          marks: 28,
+          maximum_marks: 45,
+          Test: "Html Css ",
+        },
+        10007: {
+          name: "Jyoti Kushwaha",
+          result: "Pass",
+          marks: 31,
+          maximum_marks: 40,
+          Test: "Ms Word",
+        },
+        10008: {
+          name: "Prerna Kushwaha",
+          result: "Pass",
+          marks: 35,
+          maximum_marks: 45,
+          Test: "Html Css ",
+        },
+        10009: {
+          name: "Raj Kumari Verma",
+          result: "Pass",
+          marks: 29,
+          maximum_marks: 40,
+          Test: "Ms Word",
+        },
+        100010: {
+          name: "Tanish Verma",
+          result: "Pass",
+          marks: 32,
+          maximum_marks: 40,
+          Test: "Ms Word",
+        },
+        100011: {
+          name: "Ramesh Yadav",
+          result: "Pass",
+          marks: 82,
+          maximum_marks: 100,
+          Test: "Tally Prime",
+        },
+        100012: {
+          name: "Sumit Singh",
+          result: "Pass",
+          marks: "60",
+          maximum_marks: "100",
+          Test: "Html Css javaScipt",
+        },
+        100013: {
+          name: "Abhishek yadav",
+          result: "Fail",
+          marks: "25",
+          maximum_marks: "100",
+          Test: "Python",
+        },
+        100014: {
+          name: "Shivam sharma",
+          result: "Pass",
+          marks: "84",
+          maximum_marks: "100",
+          Test: "Html Css",
+        },
+        100015: {
+          name: "Raj Kumari Pal",
+          result: "Pass",
+          marks: "88",
+          maximum_marks: "100",
+        },
+
+        67890: { name: "Arti Verma ", result: "Fail", marks: 40 },
+        666666: {
+          name: "Ramesh",
+          result: "Pass",
+          marks: 90,
+          Father_Name: 50,
+        },
+        11121: { name: "Sumit Verma", result: "Pass", marks: 92 },
+      };
+
+      function checkResult() {
+        // Input से रोल नंबर प्राप्त करें
+        const rollNumber = document.getElementById("rollNumber").value;
+
+        // रोल नंबर को चेक करें और result दिखाएं
+        const result = studentData[rollNumber];
+
+        if (result) {
+          document.getElementById("resultDisplay").innerHTML = `
+                <p>Full_Name: ${result.name}</p>
+                <p>Result: ${result.result}</p>
+                <p>Marks: ${result.marks}</p>
+                <p>Maximum_Marks: ${result.maximum_marks}</p>
+                <p>Test: ${result.Test} </p>
+            `;
+        } else {
+          document.getElementById(
+            "resultDisplay"
+          ).innerHTML = `<p>कृपया सही रोल नंबर दर्ज करें।</p>`;
+        }
+      }
+    </script>
+    <script src="sidebar.js"></script>
+  </body>
+</html>
